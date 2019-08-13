@@ -3,6 +3,45 @@ package gaodeng
 const (
 	EnvProd = "prod" // (生产环境)
 	EnvTest = "test" // (沙盒环境)
+
+	TestAppKey         = "EgDjckWzyGxwIi7e9J1A8LdruWMidFFH"
+	TestAppSecret      = "9Q8744Oe0nv8aw738b3HkjdylYZzNeZOcTz53KI4pchKpqIi"
+	TestTaxPayerNumber = "91440300661005378A"
+	TestSellerName     = "深圳市卓越物业管理股份有限公司卓越时代广场地下停车场"
+	TestSellerAddress  = "深圳市福田区益田路与福华路交汇处卓越时代广场地下"
+
+	InvoiceStatusDoing   int8 = 1  // 开票中
+	InvoiceStatusSuccess int8 = 2  // 开票成功
+	InvoiceStatusFailure int8 = -2 // 开票失败
+
+	InvoiceTitleTypePerson     uint8 = 1 // 个人
+	InvoiceTitleTypeEnterprise uint8 = 2 // 企业
+
+	TradeTypeElse             string = "0" // 其他
+	TradeTypeCommunication    string = "1" // 通信
+	TradeTypeFood             string = "2" // 餐饮
+	TradeTypeTransportation   string = "3" // 交通
+	TradeTypePayment          string = "4" // 支付平台
+	TradeTypeTicketAndTourist string = "5" // 票务/旅游
+
+	InvoiceTypeCodeZZSZY string = "004" // 增值税专用发票
+	InvoiceTypeCodeZZSPT string = "007" // 增值税普通发票
+	InvoiceTypeCodeZZSJS string = "025" // 增值税卷式发票
+	InvoiceTypeCodeZZSDZ string = "026" // 增值税电子发票(默认)
+	InvoiceTypeCodeQKL   string = "032" // 区块链发票
+
+	GoodsName      string = "计时停车"
+	TaxCodeParking string = "3040502020200000000"
+	TaxRateParking string = "0.09"
+
+	ZeroTaxNo     string = ""  // 非零税率
+	ZeroTaxExport string = "0" // 出口零税
+	ZeroTaxFree   string = "1" // 免税
+	ZeroTaxNone   string = "2" // 不征税
+	ZeroTaxCommon string = "3" // 普通零税率
+
+	PreferentialPolicyNo  string = ""  // 不使用
+	PreferentialPolicyUse string = "1" // 使用
 )
 
 const (

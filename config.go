@@ -3,10 +3,17 @@ package gaodeng
 import "os"
 
 // 整体配置的构造函数
-func NewConfig() (conf Config) {
-	conf = Config{
-		AppKey:    os.Getenv("AppKey"),
-		AppSecret: os.Getenv("AppSecret"),
+func NewConfig(isProd bool) (conf Config) {
+	if isProd {
+		conf = Config{
+			AppKey:    os.Getenv("AppKey"),
+			AppSecret: os.Getenv("AppSecret"),
+		}
+	} else {
+		conf = Config{
+			AppKey:    TestAppKey,
+			AppSecret: TestAppSecret,
+		}
 	}
 	return conf
 }
