@@ -42,6 +42,19 @@ const (
 
 	PreferentialPolicyNo  string = ""  // 不使用
 	PreferentialPolicyUse string = "1" // 使用
+
+	RedStateSuccess uint8 = 1 // 调用成功
+	RedStateFailure uint8 = 2 // 调用失败
+	RedStateFinish  uint8 = 3 // 已冲红成功
+
+	TicketTypeBlue uint8 = 0 // 蓝票
+	TicketTypeRed  uint8 = 1 // 红票
+
+	AmountQueryResultSuccess string = "success" // 成功
+	AmountQueryResultFailure string = "fail"    // 失败
+
+	VerifyCodeTrue uint16 = 0 // 成功（发票验证为真）
+	VerifyCodeFail uint16 = 1 // 成功（发票验证为假）
 )
 
 const (

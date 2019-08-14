@@ -15,7 +15,6 @@ func (c *Client) InvoiceBlue(body InvoiceBlueRequest) (rsp InvoiceBlueResponse, 
 	return
 }
 
-// 关闭订单的参数
 type InvoiceBlueRequest struct {
 	TaxPayerNumber     string  `json:"taxpayer_num"`                   // 销货方纳税人识别号(15~20位数字或者大写字母)
 	SellerAddress      string  `json:"seller_address,omitempty"`       // 销货方地址
@@ -42,7 +41,7 @@ type InvoiceBlueRequest struct {
 	EtrData            string  `json:"etr_data,omitempty"`             // 预留字段
 	InvoiceTypeCode    string  `json:"invoice_type_code,omitempty"`    // 发票种类编码(见constant定义)
 	SpecialInvoiceKind string  `json:"special_invoice_kind,omitempty"` // 特殊票种标识（成品油票必传：08，其他票种可以为空）
-	TerminalCode       string  `json:"terminal_code,omitempty"`        // 开票终端代码
+	TerminalCode       string  `json:"terminal_code,omitempty"`        // 开票终端代码,使用百望税控服务器时必填
 	TotalAmountHasTax  string  `json:"total_amount_has_tax"`           // 总含税金额(最多保留两位小数)
 	TotalTaxAmount     string  `json:"total_tax_amount"`               // 总税额(最多保留两位小数)
 	TotalAmountNoTax   string  `json:"total_amount_no_tax"`            // 总不含税金额(最多保留两位小数)
@@ -67,7 +66,6 @@ type Goods struct {
 	EtrData                string `json:"etr_data,omitempty"`                 // 预留字段
 }
 
-// 关闭订单的返回值
 type InvoiceBlueResponse struct {
 	UniqueId string `json:"g_unique_id"` // 平台交易流水号(由平台维护唯一性)
 	OrderId  string `json:"order_id"`    // 商户交易流水号(由商户维护唯一性)
