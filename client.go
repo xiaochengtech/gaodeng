@@ -3,6 +3,7 @@ package gaodeng
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"gaodeng/golden"
 	"io/ioutil"
 )
@@ -45,6 +46,8 @@ func (c *Client) post(relativeUrl string, bodyObj interface{}) (bytes []byte, er
 	if err != nil {
 		return
 	}
+	//rst := string(byteBody)
+	//fmt.Println(rst)
 
 	// 读取业务内容并转为字节流返回
 	var model ResponseModel
@@ -52,6 +55,7 @@ func (c *Client) post(relativeUrl string, bodyObj interface{}) (bytes []byte, er
 	if model.Code == StatusCodeNormal {
 		bytes, _ = json.Marshal(model.Data)
 	} else {
+		fmt.Printf("error code : %d, error message : %s\n", model.Code, model.Msg)
 		err = errors.New(model.Msg)
 	}
 	return

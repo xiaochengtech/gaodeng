@@ -11,7 +11,7 @@ func TestInvoiceAmount(t *testing.T) {
 	// 初始化参数
 	body := InvoiceAmountRequest{
 		TaxPayerNumber:  TestTaxPayerNumber,
-		InvoiceTypeCode: InvoiceTypeCodeZZSJS,
+		InvoiceTypeCode: InvoiceTypeCodeQKL,
 	}
 
 	// 请求接口
