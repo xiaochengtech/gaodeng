@@ -1,4 +1,4 @@
-package goland
+package golden
 
 import (
 	"bytes"
