@@ -1,0 +1,78 @@
+package gaodeng
+
+const (
+	EnvProd = "prod" // (生产环境)
+	EnvTest = "test" // (沙盒环境)
+
+	AppVersion = "1.0.0"
+
+	TestAppKey         = "EgDjckWzyGxwIi7e9J1A8LdruWMidFFH"
+	TestAppSecret      = "9Q8744Oe0nv8aw738b3HkjdylYZzNeZOcTz53KI4pchKpqIi"
+	TestTaxPayerNumber = "91440300661005378A"
+	TestSellerName     = "深圳市卓越物业管理股份有限公司卓越时代广场地下停车场"
+	TestSellerAddress  = "深圳市福田区益田路与福华路交汇处卓越时代广场地下"
+
+	InvoiceStatusDoing   string = "1" // 开票中
+	InvoiceStatusSuccess        = "2" // 开票成功
+	InvoiceStatusFailure        = "3" // 开票失败
+
+	InvoiceTitleTypePerson     uint8 = 1 // 个人
+	InvoiceTitleTypeEnterprise uint8 = 2 // 企业
+
+	TradeTypeElse             string = "0" // 其他
+	TradeTypeCommunication           = "1" // 通信
+	TradeTypeFood                    = "2" // 餐饮
+	TradeTypeTransportation          = "3" // 交通
+	TradeTypePayment                 = "4" // 支付平台
+	TradeTypeTicketAndTourist        = "5" // 票务/旅游
+
+	InvoiceTypeCodeZZSZY string = "004" // 增值税专用发票
+	InvoiceTypeCodeZZSPT        = "007" // 增值税普通发票
+	InvoiceTypeCodeZZSJS        = "025" // 增值税卷式发票
+	InvoiceTypeCodeZZSDZ        = "026" // 增值税电子发票(默认)
+	InvoiceTypeCodeQKL          = "032" // 区块链发票
+
+	GoodsName      string = "计时停车"
+	TaxCodeParking string = "3040502020200000000"
+	TaxRateParking uint32 = 90
+
+	ZeroTaxNo     string = ""  // 非零税率
+	ZeroTaxExport        = "0" // 出口零税
+	ZeroTaxFree          = "1" // 免税
+	ZeroTaxNone          = "2" // 不征税
+	ZeroTaxCommon        = "3" // 普通零税率
+
+	PreferentialPolicyNo  string = ""  // 不使用
+	PreferentialPolicyUse        = "1" // 使用
+
+	RedStateSuccess uint8 = 1 // 调用成功
+	RedStateFailure uint8 = 0 // 调用失败
+
+	TicketDoing   string = "1" // 开票中
+	TicketSuccess        = "2" // 开票成功
+	TicketFailure        = "3" // 开票失败
+
+	VerifyCodeTrue uint16 = 0 // 成功（发票验证为真）
+	VerifyCodeFail uint16 = 1 // 成功（发票验证为假）
+
+	StatusCodeNormal               uint16 = 0    // 正常
+	StatusCodeRequestError         uint16 = 400  // 请求错误,服务器无法理解http请求
+	StatusCodeNotPermission        uint16 = 403  // 禁止访问
+	StatusCodeServerInnerError     uint16 = 500  // 服务器内部错误
+	StatusCodeVersionError         uint16 = 1001 // 版本错误
+	StatusCodeLackCommonParameters uint16 = 1002 // 缺少公共参数
+	StatusCodeTimestampError       uint16 = 1003 // 时间戳错误
+	StatusCodeAppKeyNotExists      uint16 = 1004 // appkey不存在
+	StatusCodeAppClosed            uint16 = 1005 // app已关闭
+	StatusCodeDeveloperClosed      uint16 = 1006 // 开发者已被关闭
+	StatusCodeSignError            uint16 = 1007 // 签名错误
+	StatusCodeDeveloperUnAudit     uint16 = 1008 // 开发者资质待审核
+	StatusCodeDeveloperNoAudit     uint16 = 1009 // 开发者资质审核未通过
+	StatusCodeParameterInValid     uint16 = 1010 // 参数检验错误
+	StatusCodeDirtyData            uint16 = 1011 // 脏数据
+	StatusCodeCallNumberNotEnough  uint16 = 1012 // 接口调用次数不足
+	StatusCodeInterfaceFeeError    uint16 = 1013 // 接口计费错误
+	StatusCodearameterError        uint16 = 1014 // 业务参数错误
+	StatusCodeDependDeny           uint16 = 1015 // 依赖服务返回拒绝
+	StatusCodeDependError          uint16 = 1016 // 依赖服务故障
+)
