@@ -46,12 +46,18 @@ func (c *Client) post(relativeUrl string, bodyObj interface{}) (bytes []byte, er
 	if err != nil {
 		return
 	}
-	//rst := string(byteBody)
-	//fmt.Println(rst)
+	//raw := string(byteBody)
+	//fmt.Printf("raw body : %s\n", raw)
 
 	// 读取业务内容并转为字节流返回
 	var model ResponseModel
-	_ = json.Unmarshal(byteBody, &model)
+	err = json.Unmarshal(byteBody, &model)
+	if err != nil {
+		fmt.Printf("json.Unmarshal error : %v\n", err)
+		return
+	}
+
+	// 解析业务对象
 	if model.Code == StatusCodeNormal {
 		bytes, _ = json.Marshal(model.Data)
 	} else {
