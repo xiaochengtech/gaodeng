@@ -16,23 +16,21 @@ func (c *Client) InvoiceRed(body InvoiceRedRequest) (rsp InvoiceRedResponse, err
 }
 
 type InvoiceRedRequest struct {
-	CallbackUrl string    `json:"callback_url"` // 接收开票平台推送的消息地址
-	Invoices    []Invoice `json:"invoice"`      // 发票组
+	Invoices []Invoice `json:"invoices"` // 发票组
 }
 
 type Invoice struct {
-	TaxPayerNumber string `json:"taxpayer_num"`         // 开票商户的税号
-	BTradeNo       string `json:"b_trade_no,omitempty"` // 商户交易流水号
-	GTradeNo       string `json:"g_trade_no,omitempty"` // 高灯开票平台开票流水号
+	SellerTaxPayerNumber string `json:"seller_taxpayer_num"` // 销方税号
+	CallbackUrl          string `json:"callback_url"`        // 红票接收地址
+	OrderSn              string `json:"order_sn,omitempty"`  // 需要红冲的高灯订单号(蓝票开具时获得),和order_id不能同时为空
+	OrderId              string `json:"order_id,omitempty"`  // 需要红冲的三方自有订单号(蓝票开具时传入),和order_sn不能同时为空
 }
 
 type InvoiceRedResponse = []InvoiceNoRed
 
 type InvoiceNoRed struct {
-	TaxPayerNumber string `json:"taxpayer_num"`   // 开票商户的税号
-	BTradeNo       string `json:"b_trade_no"`     // 商户交易流水号
-	GTradeNo       string `json:"g_trade_no"`     // 高灯开票平台开票流水号
-	State          uint8  `json:"state"`          // 冲红状态(见constant定义)
-	Message        string `json:"msg"`            // 消息提示
-	RedGTradeNo    string `json:"red_g_trade_no"` // 红票对应的平台唯一流水号
+	Code      uint8  `json:"code"`       // 冲红状态(见constant定义)
+	Message   string `json:"message"`    // 提交红冲描述
+	OrderSn   string `json:"order_sn"`   // 高灯红票订单号(常与蓝票订单号一致)
+	InvoiceId string `json:"invoice_id"` // 高灯发票唯一识别号
 }

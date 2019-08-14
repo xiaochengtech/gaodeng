@@ -13,6 +13,7 @@ func TestInvoiceVerify(t *testing.T) {
 		TicketCode: "011001800304",
 		TicketSn:   "02703183",
 		TicketDate: "2019-07-23",
+		Additional: "463562",
 	}
 
 	// 请求接口

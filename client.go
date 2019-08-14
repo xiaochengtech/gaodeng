@@ -4,8 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gaodeng/golden"
-	"io/ioutil"
+	"gaodeng/goland"
 )
 
 // 高灯客户端的构造函数
@@ -17,14 +16,14 @@ func NewClient(isProd bool) (client *Client) {
 		client.env = EnvTest
 	}
 	client.config = NewConfig(isProd)
-	client.sdk = golden.NewSdk(client.config.AppKey, client.config.AppSecret, client.env)
+	client.sdk = goland.NewSdk(client.config.AppKey, client.config.AppSecret, AppVersion, client.env)
 	return client
 }
 
 type Client struct {
 	env    string      // 是否是生产环境
 	config Config      // 配置信息
-	sdk    *golden.Sdk // 高灯开票sdk
+	sdk    *goland.Sdk // 高灯开票sdk
 }
 
 // 向高灯sdk发送请求
@@ -35,14 +34,7 @@ func (c *Client) post(relativeUrl string, bodyObj interface{}) (bytes []byte, er
 	_ = json.Unmarshal(bodyJson, &body)
 
 	// 发起请求
-	resp, err := c.sdk.HttpPost(relativeUrl, body)
-	if err != nil {
-		return
-	}
-
-	// 读取返回body的内容
-	defer resp.Body.Close()
-	byteBody, err := ioutil.ReadAll(resp.Body)
+	byteBody, err := c.sdk.HttpPost(relativeUrl, body)
 	if err != nil {
 		return
 	}
