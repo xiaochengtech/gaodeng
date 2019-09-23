@@ -15,7 +15,6 @@ func TestInvoiceVerify(t *testing.T) {
 		TicketDate: "2019-07-23",
 		Additional: "463562",
 	}
-
 	// 请求接口
 	wxRsp, err := testClient.InvoiceVerify(body)
 	if err != nil {

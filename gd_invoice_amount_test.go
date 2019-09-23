@@ -13,7 +13,6 @@ func TestInvoiceAmount(t *testing.T) {
 		TaxPayerNumber:  TestTaxPayerNumber,
 		InvoiceTypeCode: InvoiceTypeCodeQKL,
 	}
-
 	// 请求接口
 	wxRsp, err := testClient.InvoiceAmount(body)
 	if err != nil {

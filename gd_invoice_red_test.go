@@ -16,7 +16,6 @@ func TestInvoiceRed(t *testing.T) {
 			OrderSn:              "6566985919163970279",
 		}},
 	}
-
 	// 请求接口
 	wxRsp, err := testClient.InvoiceRed(body)
 	if err != nil {

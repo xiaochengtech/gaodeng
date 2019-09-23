@@ -9,7 +9,6 @@ func (c *Client) InvoiceBlue(body InvoiceBlueRequest) (rsp InvoiceBlueResponse, 
 	if err != nil {
 		return
 	}
-
 	// 解析返回值
 	err = json.Unmarshal(bytes, &rsp)
 	return

@@ -30,7 +30,6 @@ func TestInvoiceBlue(t *testing.T) {
 			TaxAmount:  135,
 		}},
 	}
-
 	// 请求接口
 	wxRsp, err := testClient.InvoiceBlue(body)
 	if err != nil {

@@ -13,7 +13,6 @@ func TestInvoiceStatus(t *testing.T) {
 		SellerTaxPayerNumber: TestTaxPayerNumber,
 		OrderSn:              "6566985919163970279",
 	}
-
 	// 请求接口
 	wxRsp, err := testClient.InvoiceStatus(body)
 	if err != nil {
