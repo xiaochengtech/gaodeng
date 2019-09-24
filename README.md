@@ -1,5 +1,7 @@
 # gaodeng
 
+[![Latest Tag](https://img.shields.io/badge/tag-v0.0.1-blue.svg)](https://gitee.com/cuckoopark/gaodeng/releases)
+
 用Golang封装了高灯电子发票SDK。
 
 ### 简介
