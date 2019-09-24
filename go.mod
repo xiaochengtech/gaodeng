@@ -1,4 +1,4 @@
-module gaodeng
+module gitee.com/cuckoopark/gaodeng
 
 go 1.12
 

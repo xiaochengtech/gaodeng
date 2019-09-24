@@ -20,13 +20,13 @@ func TestInvoiceBlue(t *testing.T) {
 		AmountHasTax:         1500,
 		TaxAmount:            135,
 		AmountWithoutTax:     1365,
-		Items: []Item{Item{
-			Name:       GoodsName,
-			TaxCode:    TaxCodeParking,
+		Items: []Item{{
+			Name:       "计时停车",
+			TaxCode:    "3040502020200000000",
 			TotalPrice: 1500,
 			Total:      "1",
 			Price:      "15.00",
-			TaxRate:    TaxRateParking,
+			TaxRate:    90,
 			TaxAmount:  135,
 		}},
 	}
