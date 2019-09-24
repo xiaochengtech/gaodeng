@@ -28,7 +28,7 @@ type InvoiceBlueRequest struct {
 	BuyerBankName        string `json:"buyer_bank_name,omitempty"`      // 购方开户行
 	BuyerBankAccount     string `json:"buyer_bank_account,omitempty"`   // 购方银行账号
 	BuyerPhone           string `json:"buyer_phone,omitempty"`          // 购方电话
-	BuyerEMail           string `json:"buyer_email,omitempty"`          // 购方邮箱
+	BuyerEmail           string `json:"buyer_email,omitempty"`          // 购方邮箱
 	TakerPhone           string `json:"taker_phone,omitempty"`          // 收票人手机
 	TakerName            string `json:"taker_name,omitempty"`           // 收票人名称
 	OrderId              string `json:"order_id"`                       // 商户订单号
