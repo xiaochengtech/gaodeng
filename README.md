@@ -4,6 +4,8 @@
 
 用Golang封装了高灯电子发票SDK。
 
+文档地址：[http://developer-doc.fapiaoer.cn/](http://developer-doc.fapiaoer.cn/)
+
 ### 简介
 
 * 支持全局配置`AppKey`和`AppSecret`。

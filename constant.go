@@ -45,6 +45,11 @@ const (
 	VerifyCodeTrue uint16 = 0 // 成功（发票验证为真）
 	VerifyCodeFail uint16 = 1 // 成功（发票验证为假）
 
+	CallbackNotifyTypeBlue = "invoice.blue" // 蓝票通知类型
+	CallbackNotifyTypeRed  = "invoice.red"  // 红票通知类型
+
+	CallbackTicketStatusSuccess uint8 = 2 // 开票成功，其他都是失败
+
 	StatusCodeNormal               uint16 = 0    // 正常
 	StatusCodeRequestError         uint16 = 400  // 请求错误,服务器无法理解http请求
 	StatusCodeNotPermission        uint16 = 403  // 禁止访问

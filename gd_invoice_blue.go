@@ -69,5 +69,5 @@ type Item struct {
 type InvoiceBlueResponse struct {
 	InvoiceId string `json:"invoice_id"` // 高灯发票唯一识别号
 	OrderSn   string `json:"order_sn"`   // 高灯订单号(红冲需要用到)
-	Status    uint8  `json:"status"`     // 发票状态(见constant定义)
+	State     string `json:"state"`      // 发票状态(见constant定义)
 }
