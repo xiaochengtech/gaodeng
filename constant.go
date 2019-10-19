@@ -6,9 +6,9 @@ const (
 
 	AppVersion = "1.0.0"
 
-	InvoiceStatusDoing   = "1" // 开票中
-	InvoiceStatusSuccess = "2" // 开票成功
-	InvoiceStatusFailure = "3" // 开票失败
+	InvoiceStatusDoing   int32 = 1 // 开票中
+	InvoiceStatusSuccess int32 = 2 // 开票成功
+	InvoiceStatusFailure int32 = 3 // 开票失败
 
 	InvoiceTitleTypePerson     uint8 = 1 // 个人
 	InvoiceTitleTypeEnterprise uint8 = 2 // 企业
