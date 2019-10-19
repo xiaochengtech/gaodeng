@@ -7,7 +7,7 @@ import (
 
 // 测试发票查询
 func TestInvoiceStatus(t *testing.T) {
-	fmt.Println("----------发票查询 start----------")
+	fmt.Println("----------发票查询----------")
 	// 初始化参数
 	body := InvoiceStatusRequest{
 		SellerTaxPayerNumber: TestTaxPayerNumber,
@@ -20,5 +20,4 @@ func TestInvoiceStatus(t *testing.T) {
 		return
 	}
 	fmt.Printf("返回值: %+v\n", wxRsp)
-	fmt.Println("----------发票查询 end----------")
 }

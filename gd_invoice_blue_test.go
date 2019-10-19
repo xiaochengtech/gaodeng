@@ -7,7 +7,7 @@ import (
 
 // 测试开具发票
 func TestInvoiceBlue(t *testing.T) {
-	fmt.Println("----------开具发票 start----------")
+	fmt.Println("----------开具发票----------")
 	// 初始化参数
 	body := InvoiceBlueRequest{
 		SellerTaxPayerNumber: TestTaxPayerNumber,
@@ -37,5 +37,4 @@ func TestInvoiceBlue(t *testing.T) {
 		return
 	}
 	fmt.Printf("返回值: %+v\n", wxRsp)
-	fmt.Println("----------开具发票 end----------")
 }

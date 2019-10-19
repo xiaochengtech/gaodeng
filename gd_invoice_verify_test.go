@@ -7,7 +7,7 @@ import (
 
 // 测试发票查验
 func TestInvoiceVerify(t *testing.T) {
-	fmt.Println("----------发票查验 start----------")
+	fmt.Println("----------发票查验----------")
 	// 初始化参数
 	body := InvoiceVerifyRequest{
 		TicketCode: "011001800304",
@@ -22,5 +22,4 @@ func TestInvoiceVerify(t *testing.T) {
 		return
 	}
 	fmt.Printf("返回值: %+v\n", wxRsp)
-	fmt.Println("----------发票查验 end----------")
 }
