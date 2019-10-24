@@ -42,9 +42,9 @@ type InvoiceBlueRequest struct {
 	UserOpenId           string `json:"user_openid,omitempty"`          // 三方用户id
 	SpecialInvoiceKind   string `json:"special_invoice_kind,omitempty"` // 特殊票种标识（成品油票必传：08，其他票种可以为空）
 	TerminalCode         string `json:"terminal_code,omitempty"`        // 开票终端代码,使用百望税控服务器时必填
-	AmountHasTax         uint64 `json:"amount_has_tax"`                 // 含税金额(单分)
-	TaxAmount            uint64 `json:"tax_amount"`                     // 税额(单分)
-	AmountWithoutTax     uint64 `json:"amount_without_tax"`             // 不含税金额(单分)
+	AmountHasTax         int64  `json:"amount_has_tax"`                 // 含税金额(单分)
+	TaxAmount            int64  `json:"tax_amount"`                     // 税额(单分)
+	AmountWithoutTax     int64  `json:"amount_without_tax"`             // 不含税金额(单分)
 	Remark               string `json:"remark,omitempty"`               // 发票备注
 	Items                []Item `json:"items"`                          // 商品数组
 }
@@ -55,12 +55,12 @@ type Item struct {
 	TaxType                string `json:"tax_type,omitempty"`                 // 税目类别
 	Models                 string `json:"models,omitempty"`                   // 商品规格
 	Unit                   string `json:"unit,omitempty"`                     // 计量单位
-	TotalPrice             uint64 `json:"total_price"`                        // 不含税商品总金额（精确到2位）
+	TotalPrice             int64  `json:"total_price"`                        // 不含税商品总金额（精确到2位）
 	Total                  string `json:"total"`                              // 商品数量
 	Price                  string `json:"price"`                              // 不含税商品单价
-	TaxRate                uint64 `json:"tax_rate"`                           // 税率(千分位,税率*1000)
-	TaxAmount              uint64 `json:"tax_amount"`                         // 税额(单分)
-	Discount               int32  `json:"discount,omitempty"`                 // 总的折扣金额；金额必须是负数；无折扣时不传
+	TaxRate                int64  `json:"tax_rate"`                           // 税率(千分位,税率*1000)
+	TaxAmount              int64  `json:"tax_amount"`                         // 税额(单分)
+	Discount               int64  `json:"discount,omitempty"`                 // 总的折扣金额；金额必须是负数；无折扣时不传
 	ZeroTaxFlag            string `json:"zero_tax_flag,omitempty"`            // 零税率标识，默认为空(见constant定义)
 	PreferentialPolicyFlag string `json:"preferential_policy_flag,omitempty"` // 优惠政策标志(见constant定义)
 	VatSpecialManagement   string `json:"vat_special_management,omitempty"`   // 增值税特殊管理
@@ -69,5 +69,5 @@ type Item struct {
 type InvoiceBlueResponse struct {
 	InvoiceId string `json:"invoice_id"` // 高灯发票唯一识别号
 	OrderSn   string `json:"order_sn"`   // 高灯订单号(红冲需要用到)
-	State     int32  `json:"state"`      // 发票状态(见constant定义)
+	State     uint8  `json:"state"`      // 发票状态(见constant定义)
 }

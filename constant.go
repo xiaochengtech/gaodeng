@@ -6,9 +6,9 @@ const (
 
 	AppVersion = "1.0.0"
 
-	InvoiceStatusDoing   int32 = 1 // 开票中
-	InvoiceStatusSuccess int32 = 2 // 开票成功
-	InvoiceStatusFailure int32 = 3 // 开票失败
+	InvoiceStatusDoing   uint8 = 1 // 开票中
+	InvoiceStatusSuccess uint8 = 2 // 开票成功
+	InvoiceStatusFailure uint8 = 3 // 开票失败
 
 	InvoiceTitleTypePerson     uint8 = 1 // 个人
 	InvoiceTitleTypeEnterprise uint8 = 2 // 企业
@@ -42,8 +42,8 @@ const (
 	TicketSuccess = "2" // 开票成功
 	TicketFailure = "3" // 开票失败
 
-	VerifyCodeTrue uint16 = 0 // 成功（发票验证为真）
-	VerifyCodeFail uint16 = 1 // 成功（发票验证为假）
+	VerifyCodeTrue uint8 = 0 // 成功（发票验证为真）
+	VerifyCodeFail uint8 = 1 // 成功（发票验证为假）
 
 	CallbackNotifyTypeBlue = "invoice.blue" // 蓝票通知类型
 	CallbackNotifyTypeRed  = "invoice.red"  // 红票通知类型
