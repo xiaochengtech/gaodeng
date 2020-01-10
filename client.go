@@ -3,6 +3,7 @@ package gaodeng
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	golden "gitee.com/cuckoopark/gaodeng/golden/1.0.0"
 )
 
@@ -44,7 +45,7 @@ func (c *Client) post(relativeUrl string, bodyObj interface{}) (bytes []byte, er
 	if model.Code == StatusCodeNormal {
 		bytes, err = json.Marshal(model.Data)
 	} else {
-		err = errors.New(model.Msg)
+		err = errors.New(fmt.Sprintf("%d:%s", model.Code, model.Msg))
 	}
 	return
 }
