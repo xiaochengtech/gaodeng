@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	golden "gitee.com/cuckoopark/gaodeng/golden/1.0.0"
+	golden "gitee.com/xiaochengtech/gaodeng/golden/1.0.0"
 )
 
 // 高灯客户端的构造函数

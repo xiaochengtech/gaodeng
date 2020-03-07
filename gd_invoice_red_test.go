@@ -12,7 +12,7 @@ func TestInvoiceRed(t *testing.T) {
 	body := InvoiceRedRequest{
 		Invoices: []Invoice{Invoice{
 			SellerTaxPayerNumber: TestTaxPayerNumber,
-			CallbackUrl:          "https://www.cuckoopark.com/",
+			CallbackUrl:          "https://www.xiaochengtech.cn/",
 			OrderSn:              "6566985919163970279",
 		}},
 	}

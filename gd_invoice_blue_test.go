@@ -16,7 +16,7 @@ func TestInvoiceBlue(t *testing.T) {
 		BuyerTitle:           "张三",
 		OrderId:              "cuckoo20190813180503001",
 		InvoiceTypeCode:      InvoiceTypeCodeQKL,
-		CallbackUrl:          "https://www.cuckoopark.com/",
+		CallbackUrl:          "https://www.xiaochengtech.cn/",
 		AmountHasTax:         1500,
 		TaxAmount:            135,
 		AmountWithoutTax:     1365,
