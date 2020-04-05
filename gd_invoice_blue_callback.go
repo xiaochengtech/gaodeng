@@ -1,6 +1,6 @@
 package gaodeng
 
-type CallbackUrlBody struct {
+type InvoiceBlueCallbackBody struct {
 	AppKey                  string `json:"appkey"`                      // 服务商appkey
 	Message                 string `json:"message"`                     // 返回结果详情
 	NotifyType              string `json:"notify_type"`                 // 通知类型，参见constant.go
