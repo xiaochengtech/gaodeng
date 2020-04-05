@@ -1,25 +1,26 @@
 package gaodeng
 
 import (
+	"fmt"
 	"testing"
 )
 
 // 测试发票冲红
-func TestInvoiceRed(t *testing.T) {
-	t.Log("----------发票冲红----------")
+func testInvoiceRed(t *testing.T, c *Client, orderSn string) (err error) {
+	fmt.Println("----------发票冲红----------")
 	// 初始化参数
 	body := InvoiceRedRequest{
 		Invoices: []Invoice{Invoice{
 			SellerTaxPayerNumber: TestTaxPayerNumber,
 			CallbackUrl:          "https://www.xiaochengtech.cn/",
-			OrderSn:              "6566985919163970279",
+			OrderSn:              orderSn,
 		}},
 	}
 	// 请求接口
-	wxRsp, err := testClient.InvoiceRed(body)
+	rsp, err := c.InvoiceRed(body)
 	if err != nil {
-		t.Error(err)
 		return
 	}
-	t.Logf("返回值: %+v", wxRsp)
+	fmt.Printf("返回值: %+v\n", rsp)
+	return
 }

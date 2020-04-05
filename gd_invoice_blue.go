@@ -37,16 +37,26 @@ type InvoiceBlueRequest struct {
 	Drawer               string `json:"drawer,omitempty"`               // 开票人
 	Payee                string `json:"payee,omitempty"`                // 收款人
 	Checker              string `json:"checker,omitempty"`              // 复核人
-	TradeType            string `json:"trade_type,omitempty"`           // 行业分类(见constant定义)
-	MachineNo            string `json:"machine_no,omitempty"`           // 税盘号
+	TerminalCode         string `json:"terminal_code,omitempty"`        // 开票终端代码,使用百望税控服务器时必填
 	UserOpenId           string `json:"user_openid,omitempty"`          // 三方用户id
 	SpecialInvoiceKind   string `json:"special_invoice_kind,omitempty"` // 特殊票种标识（成品油票必传：08，其他票种可以为空）
-	TerminalCode         string `json:"terminal_code,omitempty"`        // 开票终端代码,使用百望税控服务器时必填
-	AmountHasTax         int64  `json:"amount_has_tax"`                 // 含税金额(单分)
-	TaxAmount            int64  `json:"tax_amount"`                     // 税额(单分)
-	AmountWithoutTax     int64  `json:"amount_without_tax"`             // 不含税金额(单分)
+	Zsfs                 string `json:"zsfs,omitempty"`                 // 征收方式：开具差额征税发票时必填"2"
+	Deduction            int64  `json:"deduction,omitempty"`            // 差额征税扣除额(分)，当zsfs为2时，此项必填
+	AmountHasTax         int64  `json:"amount_has_tax"`                 // 含税金额(分)
+	TaxAmount            int64  `json:"tax_amount"`                     // 税额(分)
+	AmountWithoutTax     int64  `json:"amount_without_tax"`             // 不含税金额(分)
 	Remark               string `json:"remark,omitempty"`               // 发票备注
+	StoreNo              string `json:"store_no,omitempty"`             // 门店编码
+	Template             uint8  `json:"template,omitempty"`             // 发票模板：1.普通区块链电子发票样(默认)、2.丽江、3.石林、4.新版自定义模板
+	Info                 Info   `json:"info,omitempty"`                 // 预留字段、云南区块链商户，使用冠名票发票模板时必填
+	TradeType            string `json:"trade_type,omitempty"`           // 行业分类(见constant定义)
+	MachineNo            string `json:"machine_no,omitempty"`           // 税盘号
 	Items                []Item `json:"items"`                          // 商品数组
+}
+
+type Info struct {
+	UseDate    string `json:"use_date,omitempty"`    // 入园日期,使用冠名票发票模板时必填，如20200217
+	TicketName string `json:"ticket_name,omitempty"` // 票据名称，使用冠名模板时必填
 }
 
 type Item struct {
@@ -59,15 +69,15 @@ type Item struct {
 	Total                  string `json:"total"`                              // 商品数量
 	Price                  string `json:"price"`                              // 不含税商品单价
 	TaxRate                int64  `json:"tax_rate"`                           // 税率(千分位,税率*1000)
-	TaxAmount              int64  `json:"tax_amount"`                         // 税额(单分)
+	TaxAmount              int64  `json:"tax_amount"`                         // 税额(分)
 	Discount               int64  `json:"discount,omitempty"`                 // 总的折扣金额；金额必须是负数；无折扣时不传
-	ZeroTaxFlag            string `json:"zero_tax_flag,omitempty"`            // 零税率标识，默认为空(见constant定义)
 	PreferentialPolicyFlag string `json:"preferential_policy_flag,omitempty"` // 优惠政策标志(见constant定义)
+	ZeroTaxFlag            string `json:"zero_tax_flag,omitempty"`            // 零税率标识，默认为空(见constant定义)
 	VatSpecialManagement   string `json:"vat_special_management,omitempty"`   // 增值税特殊管理
 }
 
 type InvoiceBlueResponse struct {
-	InvoiceId string `json:"invoice_id"` // 高灯发票唯一识别号
-	OrderSn   string `json:"order_sn"`   // 高灯订单号(红冲需要用到)
 	State     uint8  `json:"state"`      // 发票状态(见constant定义)
+	OrderSn   string `json:"order_sn"`   // 高灯订单号(红冲需要用到)
+	InvoiceId string `json:"invoice_id"` // 高灯发票唯一识别号
 }

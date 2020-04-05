@@ -1,14 +1,46 @@
 package gaodeng
 
+import (
+	"fmt"
+	"os"
+	"testing"
+	"time"
+)
+
+var (
+	TestAppKey         = os.Getenv("GDTestAppKey")
+	TestAppSecret      = os.Getenv("GDTestAppSecret")
+	TestTaxPayerNumber = os.Getenv("GDTestTaxPayerNumber")
+	TestSellerName     = os.Getenv("GDTestSellerName")
+	TestSellerAddress  = os.Getenv("GDTestSellerAddress")
+)
+
 var testClient = NewClient(EnvTest, Config{
 	AppKey:    TestAppKey,
 	AppSecret: TestAppSecret,
 })
 
-const (
-	TestAppKey         = "EgDjckWzyGxwIi7e9J1A8LdruWMidFFH"
-	TestAppSecret      = "9Q8744Oe0nv8aw738b3HkjdylYZzNeZOcTz53KI4pchKpqIi"
-	TestTaxPayerNumber = "91440300661005378A"
-	TestSellerName     = "深圳市卓越物业管理股份有限公司卓越时代广场地下停车场"
-	TestSellerAddress  = "深圳市福田区益田路与福华路交汇处卓越时代广场地下"
-)
+// 测试完整流程
+func TestClient(t *testing.T) {
+	now := time.Now()
+	orderId := fmt.Sprintf("%s%09d", now.Format("060102150405"), now.UnixNano()%1e9)
+	// 发票开具
+	blueRsp, err := testInvoiceBlue(t, testClient, orderId)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	// 查询发票状态
+	err = testInvoiceStatus(t, testClient, blueRsp.OrderSn)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	// 发票红冲
+	time.Sleep(5 * time.Second) // 加延时保证发票已经开具
+	err = testInvoiceRed(t, testClient, blueRsp.OrderSn)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+}

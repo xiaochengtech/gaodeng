@@ -1,22 +1,23 @@
 package gaodeng
 
 import (
+	"fmt"
 	"testing"
 )
 
 // 测试发票查询
-func TestInvoiceStatus(t *testing.T) {
-	t.Log("----------发票查询----------")
+func testInvoiceStatus(t *testing.T, c *Client, orderSn string) (err error) {
+	fmt.Println("----------发票查询----------")
 	// 初始化参数
 	body := InvoiceStatusRequest{
 		SellerTaxPayerNumber: TestTaxPayerNumber,
-		OrderSn:              "6566985919163970279",
+		OrderSn:              orderSn,
 	}
 	// 请求接口
-	wxRsp, err := testClient.InvoiceStatus(body)
+	rsp, err := c.InvoiceStatus(body)
 	if err != nil {
-		t.Error(err)
 		return
 	}
-	t.Logf("返回值: %+v", wxRsp)
+	fmt.Printf("返回值: %+v\n", rsp)
+	return
 }

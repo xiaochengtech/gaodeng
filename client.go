@@ -4,20 +4,19 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	golden "gitee.com/xiaochengtech/gaodeng/golden/1.0.0"
 )
 
 // 高灯客户端的构造函数
 func NewClient(env string, config Config) (client *Client) {
 	client = new(Client)
 	client.config = config
-	client.sdk = golden.NewSdk(config.AppKey, config.AppSecret, AppVersion, env)
+	client.sdk = NewSdk(config.AppKey, config.AppSecret, AppVersion, env)
 	return client
 }
 
 type Client struct {
-	config Config      // 配置信息
-	sdk    *golden.Sdk // 高灯开票SDK
+	config Config // 配置信息
+	sdk    *sdk   // 高灯开票SDK
 }
 
 // 向高灯SDK发送请求

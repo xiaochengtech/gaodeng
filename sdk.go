@@ -1,9 +1,17 @@
-package golden
+/*
+ 源自https://github.com/golden-corp/openplatform-sdk-go/tree/master/goland/sdk.go
+ Commit号：2020-02-26 163fc541307ace41efb48dbb59430c767b14030d
+ 修改记录：
+   1. 更改包名。
+*/
+
+package gaodeng
 
 import (
 	"bytes"
 	"crypto/md5"
 	"encoding/hex"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"sort"
@@ -14,25 +22,27 @@ import (
 	jsoniter "github.com/json-iterator/go"
 )
 
-var BaseUrl = map[string]string{"test": "http://182.254.219.106:8400", "prod": "https://openapi.fapiaoer.cn"}
+var BaseUrl = map[string]string{"test": "https://openapi-test.wetax.com.cn", "prod": "https://openapi.wetax.com.cn"}
 
-func NewSdk(appkey, appsecret, env string) *Sdk {
-	return &Sdk{
+func NewSdk(appkey, appsecret, ver, env string) *sdk {
+	return &sdk{
 		env:       env,
 		appkey:    appkey,
 		appsecret: appsecret,
+		ver:       ver,
 	}
 }
 
-type Sdk struct {
+type sdk struct {
 	env       string
 	appkey    string
 	appsecret string
+	ver       string
 }
 
-func (this *Sdk) HttpPost(url string, post map[string]interface{}) (*http.Response, error) {
+func (this *sdk) HttpPost(url string, post map[string]interface{}) ([]byte, error) {
 	timestamp := strconv.FormatInt(time.Now().Unix(), 10)
-	url = this.getBaseUrl() + url + "?appkey=" + this.appkey + "&timestamp=" + timestamp + "&signature=" + this.generateSign(post, timestamp)
+	url = this.getBaseUrl() + url + "?appkey=" + this.appkey + "&timestamp=" + timestamp + "&ver=" + this.ver + "&signature=" + this.GenerateSign(post, timestamp)
 	json := jsoniter.Config{
 		MarshalFloatWith6Digits: true,
 		EscapeHTML:              false,
@@ -41,11 +51,19 @@ func (this *Sdk) HttpPost(url string, post map[string]interface{}) (*http.Respon
 		DisallowUnknownFields:   false,
 		CaseSensitive:           true,
 	}.Froze()
-	b, _ := json.Marshal(post)
-	return http.Post(url, "application/json", bytes.NewBuffer(b))
+	b, err := json.Marshal(post)
+	if err != nil {
+		return nil, err
+	}
+	r, err := http.Post(url, "application/json", bytes.NewBuffer(b))
+	defer r.Body.Close()
+	if err != nil {
+		return nil, err
+	}
+	return ioutil.ReadAll(r.Body)
 }
 
-func (this *Sdk) generateSign(post map[string]interface{}, timestamp string) string {
+func (this *sdk) GenerateSign(post map[string]interface{}, timestamp string) string {
 	var originStrBuilder bytes.Buffer
 	originStrBuilder.WriteString(this.appkey)
 	originStrBuilder.WriteString(timestamp)
@@ -103,7 +121,7 @@ func (this *Sdk) generateSign(post map[string]interface{}, timestamp string) str
 	return md5Value
 }
 
-func (this *Sdk) getBaseUrl() string {
+func (this *sdk) getBaseUrl() string {
 	if this.env == "test" {
 		return BaseUrl["test"]
 	} else {

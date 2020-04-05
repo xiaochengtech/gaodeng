@@ -1,22 +1,24 @@
 package gaodeng
 
 import (
+	"fmt"
 	"testing"
 )
 
 // 测试发票余量
 func TestInvoiceAmount(t *testing.T) {
-	t.Log("----------发票余量----------")
+	fmt.Println("----------发票余量----------")
 	// 初始化参数
 	body := InvoiceAmountRequest{
 		TaxPayerNumber:  TestTaxPayerNumber,
-		InvoiceTypeCode: InvoiceTypeCodeQKL,
+		InvoiceTypeCode: InvoiceTypeCodeZZSDZ,
+		MachineNo:       "1",
 	}
 	// 请求接口
-	wxRsp, err := testClient.InvoiceAmount(body)
+	rsp, err := testClient.InvoiceAmount(body)
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	t.Logf("返回值: %+v", wxRsp)
+	fmt.Printf("返回值: %+v\n", rsp)
 }

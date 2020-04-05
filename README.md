@@ -1,8 +1,6 @@
 # gaodeng
 
-用Golang封装了高灯电子发票SDK。
-
-文档地址：[http://developer-doc.fapiaoer.cn/](http://developer-doc.fapiaoer.cn/)
+用Go封装了高灯电子发票SDK。
 
 ### 简介
 
@@ -39,3 +37,26 @@
 * `gd_invoice_verify.go`：发票查验接口。
 
 > 开票结果异步通知接口，将写在云端服务中
+
+### 测试
+
+需要跟高灯的商务人员，获取测试账号，然后在环境变量中，添加`client_test.go`中需要的测试变量：
+
+```shell
+export GDTestAppKey=xxxxxxxx
+export GDTestAppSecret=xxxxxxxx
+export GDTestTaxPayerNumber=xxxxxxxx
+export GDTestSellerName=xxxxxxxx
+export GDTestSellerAddress=xxxxxxxx
+```
+
+然后直接运行：
+
+```go
+go test
+```
+
+### 资料
+
+* [云票儿开发文档](http://developer-doc.fapiaoer.cn/)
+* [Github开源API库](https://github.com/golden-corp/openplatform-sdk-go)
