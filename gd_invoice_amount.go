@@ -23,6 +23,5 @@ type InvoiceAmountRequest struct {
 }
 
 type InvoiceAmountResponse struct {
-	Result string `json:"result"` // 查询结果(见constant定义)
-	Number int64  `json:"number"` // 剩余发票数量
+	Number int64 `json:"number"` // 剩余发票数量
 }

@@ -18,6 +18,7 @@ type InvoiceStatusRequest struct {
 	SellerTaxPayerNumber string `json:"seller_taxpayer_num"` // 销货方税号
 	OrderId              string `json:"order_id,omitempty"`  // 三方订单号(和order_sn二选一必填)
 	OrderSn              string `json:"order_sn,omitempty"`  // 平台订单号(和order_id二选一必填)
+	IsRed                uint8  `json:"is_red,omitempty"`    // 发票种类(见constant定义)
 }
 
 type InvoiceStatusResponse struct {

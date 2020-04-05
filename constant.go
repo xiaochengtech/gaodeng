@@ -6,6 +6,9 @@ const (
 
 	AppVersion = "1.0.0"
 
+	InvoiceTypeBlue uint8 = 0 // 发票种类-蓝票
+	InvoiceTypeRed  uint8 = 1 // 发票种类-红票
+
 	InvoiceStatusDoing   uint8 = 1 // 开票中
 	InvoiceStatusSuccess uint8 = 2 // 开票成功
 	InvoiceStatusFailure uint8 = 3 // 开票失败
