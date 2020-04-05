@@ -1,13 +1,12 @@
 package gaodeng
 
 import (
-	"fmt"
 	"testing"
 )
 
 // 测试发票余量
 func TestInvoiceAmount(t *testing.T) {
-	fmt.Println("----------发票余量----------")
+	t.Log("----------发票余量----------")
 	// 初始化参数
 	body := InvoiceAmountRequest{
 		TaxPayerNumber:  TestTaxPayerNumber,
@@ -19,5 +18,5 @@ func TestInvoiceAmount(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	fmt.Printf("返回值: %+v\n", wxRsp)
+	t.Logf("返回值: %+v", wxRsp)
 }

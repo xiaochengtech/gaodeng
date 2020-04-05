@@ -1,13 +1,12 @@
 package gaodeng
 
 import (
-	"fmt"
 	"testing"
 )
 
 // 测试开具发票
 func TestInvoiceBlue(t *testing.T) {
-	fmt.Println("----------开具发票----------")
+	t.Log("----------开具发票----------")
 	// 初始化参数
 	body := InvoiceBlueRequest{
 		SellerTaxPayerNumber: TestTaxPayerNumber,
@@ -36,5 +35,5 @@ func TestInvoiceBlue(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	fmt.Printf("返回值: %+v\n", wxRsp)
+	t.Logf("返回值: %+v", wxRsp)
 }

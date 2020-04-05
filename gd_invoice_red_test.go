@@ -1,13 +1,12 @@
 package gaodeng
 
 import (
-	"fmt"
 	"testing"
 )
 
 // 测试发票冲红
 func TestInvoiceRed(t *testing.T) {
-	fmt.Println("----------发票冲红----------")
+	t.Log("----------发票冲红----------")
 	// 初始化参数
 	body := InvoiceRedRequest{
 		Invoices: []Invoice{Invoice{
@@ -22,5 +21,5 @@ func TestInvoiceRed(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	fmt.Printf("返回值: %+v\n", wxRsp)
+	t.Logf("返回值: %+v", wxRsp)
 }

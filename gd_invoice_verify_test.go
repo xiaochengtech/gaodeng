@@ -1,13 +1,12 @@
 package gaodeng
 
 import (
-	"fmt"
 	"testing"
 )
 
 // 测试发票查验
 func TestInvoiceVerify(t *testing.T) {
-	fmt.Println("----------发票查验----------")
+	t.Log("----------发票查验----------")
 	// 初始化参数
 	body := InvoiceVerifyRequest{
 		TicketCode: "011001800304",
@@ -21,5 +20,5 @@ func TestInvoiceVerify(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	fmt.Printf("返回值: %+v\n", wxRsp)
+	t.Logf("返回值: %+v", wxRsp)
 }
