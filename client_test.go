@@ -8,11 +8,13 @@ import (
 )
 
 var (
-	TestAppKey         = os.Getenv("GDTestAppKey")
-	TestAppSecret      = os.Getenv("GDTestAppSecret")
-	TestTaxPayerNumber = os.Getenv("GDTestTaxPayerNumber")
-	TestSellerName     = os.Getenv("GDTestSellerName")
-	TestSellerAddress  = os.Getenv("GDTestSellerAddress")
+	TestAppKey            = os.Getenv("GDTestAppKey")
+	TestAppSecret         = os.Getenv("GDTestAppSecret")
+	TestTaxPayerNumber    = os.Getenv("GDTestTaxPayerNumber")
+	TestSellerName        = os.Getenv("GDTestSellerName")
+	TestSellerAddress     = os.Getenv("GDTestSellerAddress")
+	TestSellerTaxpayerNum = os.Getenv("GDTestSellerTaxpayerNum")
+	TestEmail             = os.Getenv("GDTestEmail")
 )
 
 var testClient = NewClient(EnvTest, Config{
