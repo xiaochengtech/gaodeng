@@ -6,12 +6,15 @@ import (
 )
 
 // 测试发票余量
-func TestSendEmail(t *testing.T) {
+func testSendEmail(t *testing.T, orderId string, orderSn string, isRed uint8) (err error) {
 	fmt.Println("----------发票余量----------")
 	// 初始化参数
 	body := SendEmailRequest{
-		SellerTaxpayerNum: TestSellerTaxpayerNum,
+		SellerTaxpayerNum: TestTaxPayerNumber,
 		Email:             TestEmail,
+		IsRed:             isRed,
+		OrderId:           orderId,
+		OrderSn:           orderSn,
 	}
 	// 请求接口
 	rsp, err := testClient.SendEmail(body)
@@ -20,4 +23,5 @@ func TestSendEmail(t *testing.T) {
 		return
 	}
 	fmt.Printf("返回值: %+v\n", rsp)
+	return
 }

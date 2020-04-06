@@ -8,13 +8,12 @@ import (
 )
 
 var (
-	TestAppKey            = os.Getenv("GDTestAppKey")
-	TestAppSecret         = os.Getenv("GDTestAppSecret")
-	TestTaxPayerNumber    = os.Getenv("GDTestTaxPayerNumber")
-	TestSellerName        = os.Getenv("GDTestSellerName")
-	TestSellerAddress     = os.Getenv("GDTestSellerAddress")
-	TestSellerTaxpayerNum = os.Getenv("GDTestSellerTaxpayerNum")
-	TestEmail             = os.Getenv("GDTestEmail")
+	TestAppKey         = os.Getenv("GDTestAppKey")
+	TestAppSecret      = os.Getenv("GDTestAppSecret")
+	TestTaxPayerNumber = os.Getenv("GDTestTaxPayerNumber")
+	TestSellerName     = os.Getenv("GDTestSellerName")
+	TestSellerAddress  = os.Getenv("GDTestSellerAddress")
+	TestEmail          = os.Getenv("GDTestEmail")
 )
 
 var testClient = NewClient(EnvTest, Config{
@@ -38,6 +37,8 @@ func TestClient(t *testing.T) {
 		t.Error(err)
 		return
 	}
+	// 发送邮件
+	err = testSendEmail(t, orderId, blueRsp.OrderSn, 0)
 	// 发票红冲
 	time.Sleep(5 * time.Second) // 加延时保证发票已经开具
 	err = testInvoiceRed(t, testClient, blueRsp.OrderSn)
