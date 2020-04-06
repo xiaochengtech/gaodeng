@@ -28,6 +28,7 @@
 * `gd_invoice_status.go`：查询发票信息接口(单张发票的查询)。
 * `gd_invoice_amount.go`：查询发票余量接口。
 * `gd_invoice_verify.go`：发票查验接口。
+* `gd_send_email.go`：发送邮件接口。
 
 ### 测试
 
@@ -39,6 +40,7 @@ export GDTestAppSecret=xxxxxxxx
 export GDTestTaxPayerNumber=xxxxxxxx
 export GDTestSellerName=xxxxxxxx
 export GDTestSellerAddress=xxxxxxxx
+export GDTestEmail=xxxxxxxx
 ```
 
 然后直接运行：

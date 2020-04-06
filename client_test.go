@@ -38,7 +38,7 @@ func TestClient(t *testing.T) {
 		return
 	}
 	// 发送邮件
-	err = testSendEmail(t, orderId, blueRsp.OrderSn, 0)
+	err = testSendEmail(t, orderId, 0)
 	// 发票红冲
 	time.Sleep(5 * time.Second) // 加延时保证发票已经开具
 	err = testInvoiceRed(t, testClient, blueRsp.OrderSn)
