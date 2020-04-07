@@ -13,6 +13,7 @@ var (
 	TestTaxPayerNumber = os.Getenv("GDTestTaxPayerNumber")
 	TestSellerName     = os.Getenv("GDTestSellerName")
 	TestSellerAddress  = os.Getenv("GDTestSellerAddress")
+	TestEmail          = os.Getenv("GDTestEmail")
 )
 
 var testClient = NewClient(EnvTest, Config{
@@ -32,6 +33,12 @@ func TestClient(t *testing.T) {
 	}
 	// 查询发票状态
 	err = testInvoiceStatus(t, testClient, blueRsp.OrderSn)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	// 发送邮件
+	err = testSendEmail(t, blueRsp.OrderSn, 0)
 	if err != nil {
 		t.Error(err)
 		return

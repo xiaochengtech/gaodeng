@@ -48,6 +48,9 @@ const (
 	VerifyCodeTrue uint8 = 0 // 成功（发票验证为真）
 	VerifyCodeFail uint8 = 1 // 成功（发票验证为假）
 
+	SendEmailStatusSuccess uint8 = 1 // 发送邮件成功
+	SendEmailStatusFailure uint8 = 2 // 发送邮件失败
+
 	CallbackNotifyTypeBlue = "invoice.blue" // 蓝票通知类型
 	CallbackNotifyTypeRed  = "invoice.red"  // 红票通知类型
 
