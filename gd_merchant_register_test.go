@@ -22,7 +22,7 @@ func TestMerchantRegister(t *testing.T) {
 		ContactsName:               "方志",
 		Email:                      "eline.Liang@gaopeng.com",
 		Phone:                      "18285162583",
-		RegionCode:                 44,
+		RegionCode:                 RegionCodeGuangDong,
 		CityName:                   "深圳市",
 		Address:                    "泗纶镇美森竹制品厂",
 		CallbackUrl:                "http://www.baidu.com",

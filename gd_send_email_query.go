@@ -24,5 +24,5 @@ type SendEmailQueryRequest struct {
 
 type SendEmailQueryResponse struct {
 	Email    string `json:"email"`     // 邮箱
-	PushedAt int    `json:"pushed_at"` // 邮件发送时间戳, 为0表示发送邮件失败或未发送
+	PushedAt int64  `json:"pushed_at"` // 邮件发送时间戳, 为0表示发送邮件失败或未发送
 }

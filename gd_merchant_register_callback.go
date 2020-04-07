@@ -11,5 +11,5 @@ type MerchantRegisterCallbackBody struct {
 	RegistrationCode  string `json:"registration_code,omitempty"`  // 企业注册码
 	AuthorizationCode string `json:"authorization_code,omitempty"` // 企业授权码
 	ExpressName       string `json:"express_name,omitempty"`       // 快递名称
-	ExpressNo         string `json:"ticket_date,omitempty"`        // 快递单号
+	ExpressNo         string `json:"express_no,omitempty"`         // 快递单号
 }
