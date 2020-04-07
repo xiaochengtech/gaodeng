@@ -30,7 +30,7 @@ type MerchantRegisterRequest struct {
 	Address                    string `json:"address"`                      // 不包含省市名称的地址
 	RegionCode                 uint8  `json:"region_code"`                  // 地区编码(见constant定义, 此处官方api文档中的类型有误，应该是int，不是string)
 	CityName                   string `json:"city_name"`                    // 市(地区)名称
-	Drawer                     string `json:"Drawer"`                       // 开票人
+	Drawer                     string `json:"drawer"`                       // 开票人
 	Reviewer                   string `json:"reviewer,omitempty"`           // 复核人
 	Payee                      string `json:"payee,omitempty"`              // 收款人
 	RegisterCode               string `json:"register_code,omitempty"`      // 注册邀请码
@@ -40,6 +40,7 @@ type MerchantRegisterRequest struct {
 }
 
 type MerchantRegisterResponse struct {
+	// ToDO, 倒底是taxpayer_name还taxpayer_num有待核实，此处文档没有给出说明，只有示例，但示例的字段名称与值不一致。
 	TaxpayerName string `json:"taxpayer_name"` // 纳税人识别号
 	SerialNo     int    `json:"serial_no"`     // 请求流水号
 }
