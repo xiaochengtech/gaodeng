@@ -56,6 +56,34 @@ const (
 
 	CallbackTicketStatusSuccess uint8 = 2 // 开票成功，其他都是失败
 
+	MerchantRegisterStatusInvalid = "0" // 商户注册，无效状态
+	MerchantRegisterStatusValid   = "1" // 商户注册，有效状态
+	MerchantRegisterStatusNoBlue  = "2" // 商户注册，禁止开蓝票
+	MerchantRegisterStatusNoRed   = "3" // 商户注册，禁止冲红
+
+	RegionCodeBeiJing      uint8 = 11 // 北京市
+	RegionCodeShangHai     uint8 = 31 // 上海市
+	RegionCodeTianJing     uint8 = 12 // 天津市
+	RegionCodeHeBei        uint8 = 13 // 河北省
+	RegionCodeShanXi       uint8 = 14 // 山西省
+	RegionCodeNeiMengGu    uint8 = 15 // 内蒙古自治区
+	RegionCodeLiaoNing     uint8 = 21 // 辽宁省
+	RegionCodeJiNing       uint8 = 22 // 吉林省
+	RegionCodeHeiLongJiang uint8 = 23 // 黑龙江省
+	RegionCodeJiangShu     uint8 = 32 // 江苏省
+	RegionCodeZheJiang     uint8 = 33 // 浙江省
+	RegionCodeAnHui        uint8 = 34 // 安徽省
+	RegionCodeFuJian       uint8 = 35 // 福建省
+	RegionCodeJiangXi      uint8 = 36 // 江西省
+	RegionCodeShanDong     uint8 = 37 // 山东省
+	RegionCodeHeNan        uint8 = 41 // 河南省
+	RegionCodeHuBei        uint8 = 42 // 湖北省
+	RegionCodeHuNan        uint8 = 43 // 湖南省
+	RegionCodeGuangDong    uint8 = 44 // 广东省
+	RegionCodeGuangXi      uint8 = 45 // 广西壮族自治区
+	RegionCodeHaiNan       uint8 = 46 // 海南省
+	RegionCodeChongQing    uint8 = 50 // 重庆市
+
 	StatusCodeNormal               uint16 = 0    // 正常
 	StatusCodeRequestError         uint16 = 400  // 请求错误,服务器无法理解http请求
 	StatusCodeNotPermission        uint16 = 403  // 禁止访问

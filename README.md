@@ -28,7 +28,8 @@
 * `gd_invoice_status.go`：查询发票信息接口(单张发票的查询)。
 * `gd_invoice_amount.go`：查询发票余量接口。
 * `gd_invoice_verify.go`：发票查验接口。
-* `gd_send_email.go`：发送邮件接口。
+* `gd_send_email.go`：邮件发送接口。
+* `gd_send_email_query.go`：邮件发送查询接口。
 
 ### 测试
 

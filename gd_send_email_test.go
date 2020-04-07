@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-// 测试发票余量
+// 测试邮件发送
 func testSendEmail(t *testing.T, orderSn string, isRed uint8) (err error) {
-	fmt.Println("----------发票余量----------")
+	fmt.Println("----------邮件发送----------")
 	// 初始化参数
 	body := SendEmailRequest{
 		SellerTaxpayerNum: TestTaxPayerNumber,
