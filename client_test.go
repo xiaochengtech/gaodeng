@@ -39,11 +39,11 @@ func TestClient(t *testing.T) {
 	}
 	// 发送邮件
 	err = testSendEmail(t, blueRsp.OrderSn, 0)
-	// 发票红冲
 	if err != nil {
 		t.Error(err)
 		return
 	}
+	// 发票红冲
 	time.Sleep(5 * time.Second) // 加延时保证发票已经开具
 	err = testInvoiceRed(t, testClient, blueRsp.OrderSn)
 	if err != nil {
