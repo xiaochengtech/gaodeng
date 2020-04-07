@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 )
 
-// 查询发票信息
+// 邮件发送
 func (c *Client) SendEmail(body SendEmailRequest) (rsp SendEmailResponse, err error) {
 	// 业务逻辑
 	bytes, err := c.post("/private/send-email", body)

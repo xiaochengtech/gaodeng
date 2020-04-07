@@ -37,8 +37,14 @@ func TestClient(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	// 发送邮件
+	// 邮件发送
 	err = testSendEmail(t, blueRsp.OrderSn, 0)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	// 邮件发送查询
+	err = testSendEmailQuery(t, blueRsp.OrderSn)
 	if err != nil {
 		t.Error(err)
 		return
