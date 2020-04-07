@@ -25,5 +25,5 @@ type SendEmailRequest struct {
 }
 
 type SendEmailResponse struct {
-	Status int `json:"status"` // 邮件状态(见constant定义)
+	Status uint8 `json:"status"` // 邮件状态(见constant定义)
 }
